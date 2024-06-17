@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.despani.core.mybatis.mappers.IRefDataMapper">
+
+    <resultMap id="parentResult" type="com.despani.core.beans.DespReferenceData"  >
+        <result property="typeKey" column="type_key" />
+        <result property="name" column="type_key" />
+        <result property="description" column="description" />
+        <result property="oid" column="oid" />
+        <result property="published" column="published" />
+        <collection property="values" ofType="com.despani.core.beans.DespReferenceValue" resultMap="childResult"/>
+    </resultMap>
+
+    <resultMap id="childResult" type="com.despani.core.beans.DespReferenceValue">
+        <result property="oid" column="value_oid" />
+        <result property="alt_seq" column="alt_seq" />
+        <result property="value" column="value_value" />
+        <result property="description" column="value_description" />
+        <result property="published" column="value_published"/>
+
+    </resultMap>
+
+    <select id="getAllReferenceData"   resultMap="parentResult">
+    SELECT  desp_ref_types.oid,
+      desp_ref_types.`name`,
+     desp_ref_types.type_key,  desp_ref_types.description,
+      desp_ref_types.published,   desp_ref_values.oid as value_oid,
+    desp_ref_values.alt_seq,  desp_ref_values.`value` as value_value,
+     desp_ref_values.description AS value_description,  desp_ref_values.published  as value_published
+    FROM  desp_ref_values  JOIN desp_ref_types  ON desp_ref_values.ref_type_oid = desp_ref_types.oid
+--       WHERE desp_ref_values.published=1 and desp_ref_types.published=1
+    </select>
+    <!--<select id="findAdvUser" resultType="GiviUser">-->
+        <!--SELECT givi_users.givi_id as id,-->
+        <!--givi_users.givi_is_active as active,-->
+        <!--givi_users.givi_login_attempts as loginAttempts,-->
+        <!--givi_users.givi_updated_on as updatedOn,-->
+        <!--givi_users.givi_username as username,-->
+        <!--givi_users.givi_password as pass,-->
+        <!--givi_users.givi_email as email,-->
+        <!--givi_users.givi_created_on as createdOnSelected-->
+        <!--FROM-->
+        <!--givi_users-->
+        <!--INNER JOIN-->
+        <!--givi_profile-->
+        <!--ON givi_users.givi_id = givi_profile.givi_user_id-->
+        <!--<where>-->
+            <!--<if test="!searchObj.userName.equals('')">-->
+                <!--givi_username like #{searchObj.userName}-->
+            <!--</if>-->
+
+            <!--<if test="!searchObj.lastName.equals('')">-->
+                <!--and aes_decrypt(givi_lname,#{key}) like #{searchObj.lastName}-->
+            <!--</if>-->
+
+            <!--<if test="!searchObj.firstName.equals('')">-->
+                <!--and aes_decrypt(givi_fname,#{key}) like #{searchObj.firstName}-->
+            <!--</if>-->
+            <!--and givi_is_active= #{searchObj.Active}-->
+            <!--and givi_is_enabled= #{searchObj.Disable}-->
+
+
+            <!--<if test="searchObj.CreatedOn">-->
+                <!--and givi_users.givi_created_on between #{searchObj.fromDate} and #{searchObj.untilDate}-->
+            <!--</if>-->
+
+        <!--</where>-->
+    <!--</select>-->
+</mapper>
