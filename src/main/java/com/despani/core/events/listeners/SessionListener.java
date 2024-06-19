@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.session.SessionRegistry;
 
-import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSessionEvent;
+import jakarta.servlet.http.HttpSessionListener;
 
 
 @WebListener

@@ -9,7 +9,7 @@ import com.despani.core.services.PropertiesServices;
 import com.despani.core.services.UserServices;
 import com.despani.core.utils.DespGlobals;
 import com.despani.core.utils.DespProperties;
-import com.sun.istack.Nullable;
+import jakarta.annotation.Nullable;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,10 @@ import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+
 import java.lang.annotation.Annotation;
 import java.util.concurrent.Executor;
 
@@ -137,9 +138,10 @@ public class RootConfig {
 
 
     @Bean(name = "multipartResolver")
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(100000000);
+    public StandardServletMultipartResolver multipartResolver() {
+        StandardServletMultipartResolver multipartResolver = new StandardServletMultipartResolver();
+
+//        multipartResolver(100000000);
         return multipartResolver;
     }
 

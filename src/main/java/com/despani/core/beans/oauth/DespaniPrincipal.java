@@ -16,15 +16,8 @@ import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.util.Assert;
 
-import javax.security.auth.Subject;
 import java.io.Serializable;
-import java.security.Principal;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 

@@ -2,10 +2,10 @@ package com.despani.core.events.listeners;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 
 
 @WebListener

@@ -3,10 +3,8 @@ package com.despani.core.beans.domains;
 import com.despani.core.beans.base.ADespaniDisplayObject;
 import com.despani.core.beans.enums.DespContentTypes;
 import com.despani.core.serializer.CustomAuthorityDeserializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import lombok.*;
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize; 
+import lombok.*; 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

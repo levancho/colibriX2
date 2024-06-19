@@ -3,9 +3,7 @@
 
 import org.apache.commons.codec.binary.Base64;
 
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
+import javax.crypto.*;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.spec.KeySpec;

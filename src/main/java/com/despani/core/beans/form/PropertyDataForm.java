@@ -3,7 +3,7 @@ package com.despani.core.beans.form;
 
 import lombok.*;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -17,7 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import com.despani.core.services.NotificationsService;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
 public class SsePushNotificationRestController {

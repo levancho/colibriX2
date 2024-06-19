@@ -2,16 +2,11 @@ package com.despani.core.beans.form;
 
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.hibernate.validator.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class ContentForm extends ABaseForm {

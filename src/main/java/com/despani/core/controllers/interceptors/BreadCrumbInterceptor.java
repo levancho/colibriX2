@@ -4,18 +4,19 @@ import com.despani.core.annotations.Crumb;
 import com.despani.core.beans.BreadCrumbLink;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.web.servlet.HandlerInterceptor;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.*;
 
 
 @Slf4j
-public class BreadCrumbInterceptor extends HandlerInterceptorAdapter {
+public class BreadCrumbInterceptor implements HandlerInterceptor {
 
     private static final String BREAD_CRUMB_LINKS = "breadCrumb";
 

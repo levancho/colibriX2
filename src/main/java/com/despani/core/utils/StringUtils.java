@@ -16,13 +16,14 @@
 
 package com.despani.core.utils;
 
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
 import org.apache.commons.codec.binary.Base32;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.xml.bind.DatatypeConverter;
+import jakarta.xml.bind.DatatypeConverter;
+
 import java.net.IDN;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

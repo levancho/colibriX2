@@ -1,11 +1,11 @@
 package com.despani.core.config.beans;
 
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Component

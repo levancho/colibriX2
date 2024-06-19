@@ -1,7 +1,7 @@
 package com.despani.core.config;
 
 
-import javax.jms.ConnectionFactory;
+import jakarta.jms.ConnectionFactory;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

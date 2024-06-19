@@ -7,13 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.security.auth.Subject;
-import java.io.Serializable;
 import java.math.BigInteger;
-import java.security.Principal;
 import java.util.*;
 
 @Data

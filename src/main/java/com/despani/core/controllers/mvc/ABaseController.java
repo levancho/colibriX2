@@ -18,12 +18,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public abstract class ABaseController {
+public abstract class ABaseController  {
 
 
     @Autowired

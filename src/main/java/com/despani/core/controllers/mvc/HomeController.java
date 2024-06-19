@@ -13,6 +13,7 @@ import com.despani.core.utils.OXUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -24,8 +25,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.ServletWebRequest;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.time.Instant;
 import java.util.Map;
@@ -35,7 +36,7 @@ import org.springframework.web.util.HtmlUtils;
 
 @Slf4j
 @Controller
-public class HomeController extends ABaseController   implements ErrorController  {
+public class HomeController extends ABaseController    {
 
 
 
@@ -105,7 +106,7 @@ public class HomeController extends ABaseController   implements ErrorController
     public String  getAuth(HttpServletRequest request, Model model){
         request.setAttribute("cx",request.getContextPath());
         ServletWebRequest servletWebRequest = new ServletWebRequest(request);
-        Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(servletWebRequest, true);
+        Map<String, Object> errorAttributes = this.errorAttributes.getErrorAttributes(servletWebRequest, ErrorAttributeOptions.defaults());
         errorAttributes.forEach((attribute, value) -> {
             request.setAttribute(attribute,value);
         });
@@ -120,10 +121,10 @@ public class HomeController extends ABaseController   implements ErrorController
         return generic(model, "offline");
     }
 
-    @Override
-    public String getErrorPath() {
-        return "/error";
-    }
+//    @Override
+//    public String getErrorPath() {
+//        return "/error";
+//    }
 
 
     @GetMapping("/chat")
