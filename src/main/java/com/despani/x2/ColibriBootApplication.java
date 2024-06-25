@@ -2,13 +2,18 @@ package com.despani.x2;
 
 import com.despani.x2.core.config.AclMethodSecurityConfiguration;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-//@SpringBootApplication
-//        (exclude = { RedisReactiveAutoConfiguration.class,RedisAutoConfiguration.class,
-//        JooqAutoConfiguration.class, OAuth2AutoConfiguration.class,
-//        HibernateJpaAutoConfiguration.class
-//})
-//@EnableTransactionManagement
+@SpringBootApplication
+        (exclude = {
+        JooqAutoConfiguration.class,
+        HibernateJpaAutoConfiguration.class
+})
+@EnableTransactionManagement
+
 public class ColibriBootApplication {
 
 

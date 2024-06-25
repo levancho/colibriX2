@@ -1,0 +1,59 @@
+despani:
+  app:
+    test: fuchu
+    rapidApi:
+      base: https://therundown-therundown-v1.p.rapidapi.com
+      host: therundown-therundown-v1.p.rapidapi.com
+      key: 961dbea68amshe57e068a2084e4fp114b2djsnabcda5cbfa7f
+
+server:
+  port: 5001
+  error:
+    include-exception: true
+    include-stacktrace: ALWAYS
+    whitelabel:
+      enabled: false
+  tomcat:
+    protocol-header: x-forwarded-proto
+    remote-ip-header: x-forwarded-for
+  forward-headers-strategy: native
+mybatis:
+  configuration:
+    jdbc-type-for-null: "NULL"
+spring:
+  cache:
+    type: jcache
+    jcache:
+      provider: com.hazelcast.cache.impl.HazelcastServerCachingProvider
+  config:
+    additional-location: "classpath:/com/despani/core/config"
+  freemarker:
+    suffix: .ftl
+    template-loader-path:
+      - "classpath:/templates/ftl/"
+      - "file:${DESPANI_HOME}/templates/ftl/"
+    settings:
+      number_format: "computer"
+
+  datasource:
+    hikari:
+      connection-timeout: 3000
+      idle-timeout: 0
+      max-lifetime: 0
+      maximum-pool-size: 25
+      data-source-properties:
+        useSSL: false
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  banner:
+    location: banner.txt
+  mvc:
+    date-format: yyyy-MM-dd
+  web:
+    resources:
+      static-locations: file:${DESPANI_HOME}, classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/,classpath:/react/
+
+

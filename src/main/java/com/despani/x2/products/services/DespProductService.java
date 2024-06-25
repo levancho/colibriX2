@@ -2,7 +2,7 @@ package com.despani.x2.products.services;
 
 
 import com.despani.x2.categories.beans.domains.DespCategoryItem;
-import com.despani.x2.company.beans.domains.DespCompany;
+import com.despani.x2.companies.beans.domains.DespCompany;
 import com.despani.x2.core.services.AWSFileManagementService;
 import com.despani.x2.core.xmedia.beans.domains.DespMedia;
 import com.despani.x2.core.xmedia.services.DespMediaService;

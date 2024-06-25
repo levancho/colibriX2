@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/despani3?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: levancho
+    password: ld04041978ld
+  data:
+    mongodb:
+      database: despani
+      host: localhost
+      port: 27017
+  activemq:
+    broker-url: vm://embedded?broker.persistent=false,useShutdownHook=false
+    in-memory: true
+    non-blocking-redelivery: true
+  servlet:
+    multipart:
+      max-file-size: 1000KB
+      max-request-size: 1000KB
+server:
+  port: 5002
+
+logging:
+  level:
+    root: INFO
+    #    org.apache.ibatis.executor.resultset: DEBUG
+    com:
+      despani:
+        ko:
+          kwikorder:
+            mybatis:
+              mappers: INFO
+      #    org.mybatis: DEBUG
+      #    org:
+      #      apache:
+      #        ibatis:
+      #          reflection: DEBUG
+      springframework:
+        security: INFO
+
+sportlinez:
+  test: fuchu
+  rapid-api:
+    base: https://therundown-therundown-v1.p.rapidapi.com
+    host: therundown-therundown-v1.p.rapidapi.com
+    key: 961dbea68amshe57e068a2084e4fp114b2djsnabcda5cbfa7f
+  app:
+    rapid-api:
+      base: https://therundown-therundown-v1.p.rapidapi.com
+      host: therundown-therundown-v1.p.rapidapi.com
+      key: 961dbea68amshe57e068a2084e4fp114b2djsnabcda5cbfa7f

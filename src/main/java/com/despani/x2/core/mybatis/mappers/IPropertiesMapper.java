@@ -12,7 +12,7 @@ import java.util.List;
 public interface IPropertiesMapper {
 
       static final String LOAD_PROPERTIES = "SELECT name, propValue, encrypted, iv, xtype,xsection FROM desp_properties";
-      static final String INSERT_PROPERTY = "INSERT INTO desp_properties(`name`, propValue, encrypted, iv, xtype,xsection) VALUES(#{name},#{propValue},#{encrypted},#{iv}, #{xtype, typeHandler = com.despani.core.mybatis.typehandlers.DespPropertyTypeHandler},#{xsection})";
+      static final String INSERT_PROPERTY = "INSERT INTO desp_properties(`name`, propValue, encrypted, iv, xtype,xsection) VALUES(#{name},#{propValue},#{encrypted},#{iv}, #{xtype, typeHandler = com.despani.x2.core.mybatis.typehandlers.DespPropertyTypeHandler},#{xsection})";
       static final String UPDATE_PROPERTY = "UPDATE desp_properties SET propValue=#{propValue}, encrypted=#{encrypted}, iv=#{iv} WHERE `name`=#{name}";
       static final String DELETE_PROPERTY = "DELETE FROM desp_properties WHERE `name` LIKE #{name}";
 

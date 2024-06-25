@@ -1,10 +1,9 @@
 package com.despani.x2.products.controllers.mvc.admin;
 import com.despani.x2.categories.beans.domains.DespCategoryItem;
 import com.despani.x2.categories.services.CategoryServices;
-import com.despani.x2.company.beans.domains.DespCompany;
-import com.despani.x2.company.services.DespCompanyService;
+import com.despani.x2.companies.beans.domains.DespCompany;
+import com.despani.x2.companies.services.DespCompanyService;
 import com.despani.x2.core.controllers.mvc.ABaseController;
-import com.despani.x2.core.services.*;
 import com.despani.x2.core.xmedia.beans.domains.DespMedia;
 import com.despani.x2.core.xmedia.services.DespMediaService;
 import com.despani.x2.products.beans.domains.DespProduct;
@@ -18,9 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @Controller

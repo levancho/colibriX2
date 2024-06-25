@@ -267,10 +267,10 @@ public interface IUserMapper {
     })
     DespFriend getFreindByOid(@Param("myOid") Integer myOid, @Param("requesterOid") Integer requesterOid);
 
-    @Insert("INSERT INTO desp_friends (user_1_oid, user_2_oid,statusx) VALUES (#{myOid},#{friendOid},#{status,typeHandler = com.despani.core.mybatis.typehandlers.DespFriendStatusHandler})")
+    @Insert("INSERT INTO desp_friends (user_1_oid, user_2_oid,statusx) VALUES (#{myOid},#{friendOid},#{status,typeHandler = com.despani.x2.core.xusers.mybatis.typehandlers.DespFriendStatusHandler})")
     void insertFriendRecord(@Param("myOid") Integer myOid, @Param("friendOid") Integer friendOid, @Param("status") DespFriendStatus status);
 
-    @Update("UPDATE desp_friends SET statusx = #{status,typeHandler = com.despani.core.mybatis.typehandlers.DespFriendStatusHandler} WHERE desp_friends.user_1_oid=#{myOid} AND desp_friends.user_2_oid=#{requesterOid};")
+    @Update("UPDATE desp_friends SET statusx = #{status,typeHandler = com.despani.x2.core.xusers.mybatis.typehandlers.DespFriendStatusHandler} WHERE desp_friends.user_1_oid=#{myOid} AND desp_friends.user_2_oid=#{requesterOid};")
     void updateFriendStatus(@Param("myOid") Integer myOid, @Param("requesterOid") Integer requesterOid, @Param("status") DespFriendStatus despFriendStatus);
 
     @Delete("DELETE FROM desp_friends WHERE user_1_oid=#{Oid1} AND user_2_oid=#{Oid2}")

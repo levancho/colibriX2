@@ -1,7 +1,7 @@
 package com.despani.x2.products.beans.domains;
 
 import com.despani.x2.categories.beans.domains.DespCategoryItem;
-import com.despani.x2.company.beans.domains.DespCompany;
+import com.despani.x2.companies.beans.domains.DespCompany;
 import com.despani.x2.core.beans.base.ADespaniContentObject;
 import com.despani.x2.core.beans.enums.DespContentTypes;
 import com.despani.x2.core.utils.DespPropertyX2;

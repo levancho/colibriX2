@@ -22,8 +22,8 @@ import org.apache.commons.codec.binary.Base32;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import jakarta.xml.bind.DatatypeConverter;
 
+import javax.xml.bind.DatatypeConverter;
 import java.net.IDN;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

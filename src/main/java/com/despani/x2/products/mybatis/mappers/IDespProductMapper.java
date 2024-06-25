@@ -2,7 +2,7 @@ package com.despani.x2.products.mybatis.mappers;
 
 
 import com.despani.x2.categories.beans.domains.DespCategoryItem;
-import com.despani.x2.company.beans.domains.DespCompany;
+import com.despani.x2.companies.beans.domains.DespCompany;
 import com.despani.x2.products.beans.domains.DespProduct;
 import org.apache.ibatis.annotations.*;
 

@@ -3,7 +3,9 @@ package com.despani.x2.core.config;
 import com.despani.x2.core.config.beans.DespaniAuthenticationSuccessHandler;
 import com.despani.x2.core.config.beans.DespaniConfigProperties;
 import com.despani.x2.core.managers.DespSecurityManager;
-import com.despani.x2.core.xusers.services.DespaniOauth2UserService;
+import com.despani.x2.core.xusers.interfaces.IUserService;
+import com.despani.x2.core.xusers.services.AUserService;
+import com.despani.x2.core.xusers.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +18,9 @@ import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtDecoders;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
@@ -26,14 +29,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@EnableOAuth2Client
 @Configuration
 @EnableWebSecurity(debug=true)
 public class DespaniClientSecurityConfig    {
 
     @Autowired
-    DespaniOauth2UserService despaniOauth2UserService;
+    UserServices despaniOauth2UserService;
 
     @Autowired
     DespSecurityManager secMan;
@@ -43,6 +44,11 @@ public class DespaniClientSecurityConfig    {
         return new DespaniAuthenticationSuccessHandler();
     }
 
+
+//    @Bean
+//    public JwtDecoder jwtDecoder() {
+//        return JwtDecoders.fromIssuerLocation("https://localhost:8080");
+//    }
 
 //
 //    @Bean
@@ -101,10 +107,10 @@ public class DespaniClientSecurityConfig    {
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessHandler(secMan))
-                            .oauth2Login(oauth2 -> oauth2.successHandler(despaniAuthenticationSuccessHandler())
-
-                        .userInfoEndpoint(userInfo -> userInfo.userService(despaniOauth2UserService)));
+                        .logoutSuccessHandler(secMan));
+//                            .oauth2Login(oauth2 -> oauth2.successHandler(despaniAuthenticationSuccessHandler())
+//
+//                        .userInfoEndpoint(userInfo -> userInfo.userService(despaniOauth2UserService)));
 //https://docs.spring.io/spring-security/site/docs/5.5.0/api/org/springframework/security/oauth2/client/userinfo/CustomUserTypesOAuth2UserService.html
 //                       TODO  use  .customUserType(DespaniOAuth2User.class, "despani"));
         // http....;
